@@ -2,7 +2,7 @@
 
 IoT-лаборатория: **mock Modbus TCP** → **Python poller (pymodbus)** → **MQTT** → **Node-RED**.
 
-Prod (`ges`, `proxmox-terraform`) не трогаем — это автономный стенд для отладки register-map до поля.
+Prod — это автономный стенд для отладки register-map до поля.
 
 ## Архитектура
 
@@ -56,10 +56,10 @@ docker compose restart modbus-poller
 
 ## Подключение реального устройства
 
-1. Поставь edge (Teltonika / USB-RS485 + Modbus TCP gateway) в ту же L2, что ноут.
+1. Подключение Edge (Teltonika / USB-RS485 + Modbus TCP gateway) в ту же L2, что ноут.
 2. В `registers.yaml` укажи `host` / `port` / `unit_id` и адреса из vendor register map.
-3. Останови mock, если не нужен: `docker compose stop mock-modbus`.
-4. Poller и Node-RED менять не нужно — только YAML.
+3. p.s. Останови mock, если не нужен: `docker compose stop mock-modbus`.
+4. Poller и Node-RED менять не трогать — меняем только YAML.
 
 ## Полезные команды
 
@@ -80,7 +80,8 @@ docker compose down
 - **Dashboard 2.0** (`node-red-dashboard`) — gauges для fuel/rpm.
 - **HTTP Request** → будущий GES API / Postgres.
 - **Telegram / email** на выходе узла `Low fuel event`.
-- **Modbus Read** (node-red-contrib-modbus) — только если нужен опрос прямо из NR; рекомендуемый путь: **Python poller + MQTT** (стабильнее для production-like стенда).
+- а) **Modbus Read** (node-red-contrib-modbus) — только если нужен опрос прямо из NR;
+- б) рекомендуемый путь: **Python poller + MQTT** (стабильнее для production-like стенда).
 
 ## Файлы
 
