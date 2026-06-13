@@ -1,0 +1,7 @@
+.env
+node-red/data/*
+!node-red/data/.gitkeep
+!node-red/data/flows.json
+__pycache__/
+*.pyc
+.mypy_cache/

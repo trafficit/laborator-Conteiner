@@ -1,0 +1,42 @@
+# Конфиг опроса Modbus → MQTT (редактируй под свой ПЛК / ComAp register map)
+devices:
+  - id: dg-demo
+    host: mock-modbus
+    port: 5020
+    unit_id: 1
+    registers:
+      - name: voltage_v
+        address: 0
+        count: 1
+        scale: 0.1
+        unit: V
+      - name: frequency_hz
+        address: 1
+        count: 1
+        scale: 0.01
+        unit: Hz
+      - name: coolant_c
+        address: 2
+        count: 1
+        scale: 0.1
+        unit: "°C"
+      - name: fuel_percent
+        address: 3
+        count: 1
+        scale: 1
+        unit: "%"
+      - name: engine_state
+        address: 4
+        count: 1
+        scale: 1
+        unit: code
+      - name: rpm
+        address: 5
+        count: 1
+        scale: 1
+        unit: rpm
+      - name: oil_pressure_bar
+        address: 6
+        count: 1
+        scale: 0.1
+        unit: bar
