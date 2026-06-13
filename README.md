@@ -1,4 +1,4 @@
-# Laborotoria — Modbus + Node-RED (Docker)
+# Laboratoria — Modbus + Node-RED (Docker)
 
 IoT-лаборатория: **mock Modbus TCP** → **Python poller (pymodbus)** → **MQTT** → **Node-RED**.
 
